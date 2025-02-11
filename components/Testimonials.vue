@@ -63,7 +63,7 @@ const reviewList: ReviewProps[] = [
 
 <template>
   <section
-    id="testimonials"
+    id="testimonios"
     class="max-w-[75%] mx-auto pt-24"
   >
   <div class="mt-32">
@@ -77,8 +77,8 @@ const reviewList: ReviewProps[] = [
           <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
             <div>
               <img src="https://readymadeui.com/profile_2.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">John Doe</h4>
-              <p class="mt-1 text-xs">Founder of Rubik</p>
+              <h4 class="whitespace-nowrap font-semibold mt-2">Jesse Tirado</h4>
+              <p class="mt-1 text-xs">Gerente de Marketing en oceanica</p>
             </div>
             <div class="mt-4">
               <p>The service was amazing. I never had to wait that long for my food.
@@ -88,8 +88,8 @@ const reviewList: ReviewProps[] = [
           <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
             <div>
               <img src="https://readymadeui.com/profile_3.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">Mark Adair</h4>
-              <p class="mt-1 text-xs">Founder of Alpha</p>
+              <h4 class="whitespace-nowrap font-semibold mt-2">Efren Villarreal Coronel</h4>
+              <p class="mt-1 text-xs">Gerente Tecnologia e Innovacion Quezaltic</p>
             </div>
             <div class="mt-4">
               <p>The service was amazing. I never had to wait that long for my food.

@@ -87,7 +87,7 @@ const HowItWorksList: HowItWorksProps[] = [
         {{ description }}
       </p>
     </div>
-    <img :src="image" className="w-[150px]  md:w-[250px] lg:w-[300px] mx-auto -scale-x-100 "/>
+    <img :src="image" class="w-[150px]  md:w-[250px] lg:w-[300px] mx-auto "/>
       </div>
     </div>
   </section>

@@ -1,30 +1,51 @@
 <script setup lang="ts">
-import { ChevronsDown, ChevronDown } from "lucide-vue-next";
-let fabButton = ref('features')
+import { ChevronsDown, ChevronDown, ChevronUp } from "lucide-vue-next";
+let fabButton = ref('servicios')
+let backtoTop = ref(false)
 onMounted(() => {
   const servicios = window.document.getElementById('servicios')
   const crecimiento = window.document.getElementById('crecimiento') 
-  const clientes = window.document.getElementById('clientes') 
+  const testimonios = window.document.getElementById('testimonios') 
+  const equipo = window.document.getElementById('equipo') 
+  const contacto = window.document.getElementById('contacto')
   window.addEventListener("scrollend", (event) => {
-    console.log(window.scrollY)
-    console.log(servicios.offsetTop)
-    console.log(crecimiento.offsetTop)
     if (window.scrollY >= servicios.offsetTop && window.scrollY < crecimiento.offsetTop) {
       fabButton.value = 'crecimiento'
       return
     }
-    if (window.scrollY >= servicios.offsetTop && window.scrollY <  crecimiento.offsetTop) {
-      fabButton.value = 'crecimiento'
+    if (window.scrollY >= servicios.offsetTop && window.scrollY <  testimonios.offsetTop) {
+      fabButton.value = 'testimonios'
       return
     }
-    fabButton.value = 'features'
+    if (window.scrollY >= testimonios.offsetTop && window.scrollY <  equipo.offsetTop) {
+      fabButton.value = 'equipo'
+      return
+    }
+    if (window.scrollY >= equipo.offsetTop && window.scrollY <  contacto.offsetTop - 200) {
+      console.log(window.scrollY)
+      console.log(contacto.offsetTop)
+      fabButton.value = 'contacto'
+      return
+    }
+    if (window.scrollY >= contacto.offsetTop - 200) {
+      backtoTop.value = true
+      return
+    } else {
+      backtoTop.value = false
+    }
+    fabButton.value = 'servicios'
   });
 })
+useHead({
+  htmlAttrs: {
+    class: 'scroll-smooth',
+  },
+});
 </script> 
 
 <template>
-  <div class="bg-white">
-    <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+  <div class="bg-white scroll-smooth">
+    <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden" id="sunset">
         <Navbar />
       <div
         class="relative z-30 p-5 text-2xl text-white"
@@ -68,11 +89,15 @@ onMounted(() => {
     </header>
       <Hero />
         <div class="btn grid grid-cols-2 bottom-0 animate-bounce btn fixed bottom-3 right-1 z-5">
-          <a class="text-transparent bg-gradient-to-r from-[#D247BF] to-orange-500 bg-clip-text" :href="'#'+ fabButton">
+          <a class="text-transparent bg-gradient-to-r from-[#D247BF] to-orange-500 bg-clip-text" :href="'#'+ fabButton" v-show="!backtoTop">
             {{ fabButton }}
           </a>
+          <a class="text-transparent bg-gradient-to-r from-[#D247BF] to-orange-500 bg-clip-text" href="#sunset" v-show="backtoTop">
+            Regresar al Inicio
+          </a>
           <div class="text-black">
-            <ChevronDown />
+            <ChevronDown v-show="!backtoTop"/>
+            <ChevronUp v-show="backtoTop"/>
           </div>
       </div>
       <Clients />

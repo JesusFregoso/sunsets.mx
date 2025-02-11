@@ -172,7 +172,7 @@ const socialIcon = (socialName: string) => {
 
 <template>
   <section
-    id="team"
+    id="equipo"
     class="max-w-[75%] mx-auto pt-24"
   >
   <div class="mt-32">
