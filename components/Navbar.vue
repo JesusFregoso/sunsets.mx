@@ -9,7 +9,7 @@ mode.value = "light";
 let scrolledFromTop = ref(false)
 
 onMounted(() => {
-  scrolledFromTop.value = window.scrollY > (window.innerHeight - 80)
+  scrolledFromTop.value = window.scrollY >= (window.innerHeight - 150)
   window.addEventListener('scroll', onScroll)
 })
 
@@ -21,7 +21,7 @@ function onScroll () {
   if (window.scrollY  > (window.innerHeight) && scrolledFromTop.value === true) {
     return
   }
-  scrolledFromTop.value = window.scrollY > (window.innerHeight - 80)
+  scrolledFromTop.value = window.scrollY >= (window.innerHeight - 150)
 }
 
 interface RouteProps {
@@ -84,7 +84,7 @@ const isOpen = ref<boolean>(false);
 <template>
   <header
     class="mx-auto fixed z-40 flex justify-between items-center p-2 transition-all duration-300"
-    :class="{'h-24 top-5 opacity-100': !scrolledFromTop, 'opacity-0': scrolledFromTop}"
+    :class="{'h-24 top-5 visible': !scrolledFromTop, 'invisible': scrolledFromTop}"
     ref="el"
   >
     <a

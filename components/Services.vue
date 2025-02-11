@@ -67,8 +67,8 @@ const HowItWorksList: HowItWorksProps[] = [
     v-for="({ badgeTitle, title, description, image }, index) in HowItWorksList"
     :key="title"
     :class="[
-      'flex mb-8 items-center relative',
-      { 'flex-row-reverse': index % 2 !== 0 },
+      'flex flex-col md:flex-row  lg:flex-row mb-8 items-center relative',
+      { 'md:flex-row-reverse lg:flex-row-reverse': index % 2 !== 0 },
     ]"
   >
     <!-- Contenedor de texto -->
@@ -87,7 +87,7 @@ const HowItWorksList: HowItWorksProps[] = [
         {{ description }}
       </p>
     </div>
-    <img :src="image" class="w-[150px]  md:w-[250px] lg:w-[300px] mx-auto "/>
+    <img :src="image" class="w-[300px]  md:w-[250px] lg:w-[450px] mx-auto -scale-x-100 "/>
       </div>
     </div>
   </section>

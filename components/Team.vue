@@ -37,23 +37,6 @@ const teamList: TeamProps[] = [
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    firstName: "Elizabeth",
-    lastName: "Moore",
-    positions: ["UI/UX Designer"],
-    socialNetworks: [
-      {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-      {
-        name: "X",
-        url: "https://x.com/leo_mirand4",
-      },
-    ],
-  },
-  {
-    imageUrl:
       "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     firstName: "David",
     lastName: "Diaz",
