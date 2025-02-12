@@ -80,6 +80,21 @@ useHead({
         />
         Your browser does not support the video tag.
       </video>
+      <div class="absolute z-10 w-auto min-w-full bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(0,0,0,0.25)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.20)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,0,0,0.15)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(0,0,0,0.10)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(0,0,0,0.5)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(0,0,0,1)"></use>
+          </g>
+        </svg>
+      </div>
       <div class="absolute z-30 bottom-0 animate-bounce"> 
         <a class="text-sm font-bold text-white " variant="outline" size="icon" href="#nosotros">
     
@@ -109,3 +124,68 @@ useHead({
       <Footer />
   </div>
 </template>
+<style scoped>
+.waves {
+    width: 100%;
+    height: 16vh;
+    margin-bottom: -7px;
+    min-height: 100px;
+    max-height: 150px
+}
+
+.waves.waves-sm {
+    height: 50px;
+    min-height: 50px
+}
+
+.waves.no-animation .moving-waves>use {
+    animation: none
+}
+
+.wave-rotate {
+    transform: rotate(180deg)
+}
+
+.moving-waves>use {
+    animation: f 40s cubic-bezier(.55,.5,.45,.5) infinite
+}
+
+.moving-waves>use:first-child {
+    animation-delay: -2s;
+    animation-duration: 11s
+}
+
+.moving-waves>use:nth-child(2) {
+    animation-delay: -4s;
+    animation-duration: 13s
+}
+
+.moving-waves>use:nth-child(3) {
+    animation-delay: -3s;
+    animation-duration: 15s
+}
+
+.moving-waves>use:nth-child(4) {
+    animation-delay: -4s;
+    animation-duration: 20s
+}
+
+.moving-waves>use:nth-child(5) {
+    animation-delay: -4s;
+    animation-duration: 25s
+}
+
+.moving-waves>use:nth-child(6) {
+    animation-delay: -3s;
+    animation-duration: 30s
+}
+@keyframes f {
+    0% {
+        transform: translate3d(-90px,0,0)
+    }
+
+    to {
+        transform: translate3d(85px,0,0)
+    }
+}
+</style>

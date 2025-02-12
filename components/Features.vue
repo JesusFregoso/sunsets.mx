@@ -1,80 +1,72 @@
 <script setup lang="ts">
-import {
-  Paintbrush,
-  MessageCircle,
-  TabletSmartphone,
-  BadgeCheck,
-  Goal,
-  PictureInPicture,
-  MousePointerClick,
-  Newspaper,
-} from "lucide-vue-next";
+import { ShieldCheck, Headphones, Globe, MessageSquare, TrendingUp, Maximize, BarChart, GaugeCircle, Computer } from 'lucide-vue-next'
+
 
 interface FeaturesProps {
-  icon: string;
+  icon: Component;
   title: string;
   description: string;
+  href: string;
 }
-
 const featureList: FeaturesProps[] = [
-  {
-    icon: "tabletSmartphone",
-    title: "Mobile Friendly",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.",
+{
+    icon: GaugeCircle,
+    title: 'Personalización',
+    description: 'Desarrollo Personalizado para satisfacer tus necesidades.',
+    href: '/servicios/desarrollo-a-la-medida'
+  },
+{
+    icon: ShieldCheck,
+    title: 'Seguridad',
+    description: 'Tus datos están protegidos por las últimas medidas de seguridad.',
+    href: '/servicios/seguridad'
   },
   {
-    icon: "badgeCheck",
-    title: "Social Proof",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.",
+    icon: Headphones,
+    title: 'Soporte',
+    description: 'Atención al cliente 24/7 para todas tus consultas.',
+    href: '/servicios/soporte'
   },
   {
-    icon: "goal",
-    title: "Targeted Content",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.",
+    icon: Globe,
+    title: 'Alcance Nacional e Internacional',
+    description: 'Expande tu alcance a toda la república.',
+    href: '/servicios/alcance'
   },
   {
-    icon: "pictureInPicture",
-    title: "Strong Visuals",
-    description:
-      "Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.",
+    icon: MessageSquare,
+    title: 'Comunicación',
+    description: 'Comunicación fluida para tu equipo.',
+    href: '/servicios/comunicacion'
   },
   {
-    icon: "mousePointerClick",
-    title: "Clear CTA",
+    icon: TrendingUp,
+    title: 'Analytics & Tracking',
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.",
+      'Optimiza el seguimiento y análisis del comportamiento de tus clientes.',
+    href: '/servicios/analytics-tracking'
   },
   {
-    icon: "newspaper",
-    title: "Clear Headline",
+    icon: Maximize,
+    title: 'Escalabilidad',
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.",
+      'Escala fácilmente tus recursos para satisfacer las crecientes demandas.',
+    href: '/servicios/escalabilidad'
   },
-];
-
-const iconMap: Record<
-  string,
-  | typeof TabletSmartphone
-  | typeof BadgeCheck
-  | typeof Goal
-  | typeof PictureInPicture
-  | typeof Paintbrush
-  | typeof MousePointerClick
-  | typeof MessageCircle
-  | typeof Newspaper
-> = {
-  tabletSmartphone: TabletSmartphone,
-  badgeCheck: BadgeCheck,
-  goal: Goal,
-  pictureInPicture: PictureInPicture,
-  paintbrush: Paintbrush,
-  mousePointerClick: MousePointerClick,
-  messageCircle: MessageCircle,
-  newspaper: Newspaper,
-};
+  {
+    icon: Computer,
+    title: 'Integración',
+    description: 'Integra sin problemas tus herramientas, datos y sistemas existentes.',
+    href: '/servicios/integracion'
+  },
+  {
+    icon: BarChart,
+    title: 'Ciencia de Datos',
+    description:
+      'Transforma tus datos en información accionable.',
+    href: '/servicios/ciencia-de-datos'
+  }
+]
 </script>
 
 <template>
@@ -90,148 +82,28 @@ class="max-w-[75%] mx-auto pt-24"
             <p>Desde soluciones avanzadas en analytics y tracking, integraciones con aplicaciones legacy de terceros, ciencia de datos y desarrollo especializado, hasta migraciones a la nube, operaciones y estrategias digitales para equipos de alto rendimiento, contamos con la experiencia necesaria para impulsar la transformación digital de tu empresa.</p>
           </div>
           <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-10 mt-14">
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block" viewBox="0 0 32 32">
-                <path
-                  d="M28.068 12h-.128a.934.934 0 0 1-.864-.6.924.924 0 0 1 .2-1.01l.091-.091a2.938 2.938 0 0 0 0-4.147l-1.511-1.51a2.935 2.935 0 0 0-4.146 0l-.091.091A.956.956 0 0 1 20 4.061v-.129A2.935 2.935 0 0 0 17.068 1h-2.136A2.935 2.935 0 0 0 12 3.932v.129a.956.956 0 0 1-1.614.668l-.086-.091a2.935 2.935 0 0 0-4.146 0l-1.516 1.51a2.938 2.938 0 0 0 0 4.147l.091.091a.935.935 0 0 1 .185 1.035.924.924 0 0 1-.854.579h-.128A2.935 2.935 0 0 0 1 14.932v2.136A2.935 2.935 0 0 0 3.932 20h.128a.934.934 0 0 1 .864.6.924.924 0 0 1-.2 1.01l-.091.091a2.938 2.938 0 0 0 0 4.147l1.51 1.509a2.934 2.934 0 0 0 4.147 0l.091-.091a.936.936 0 0 1 1.035-.185.922.922 0 0 1 .579.853v.129A2.935 2.935 0 0 0 14.932 31h2.136A2.935 2.935 0 0 0 20 28.068v-.129a.956.956 0 0 1 1.614-.668l.091.091a2.935 2.935 0 0 0 4.146 0l1.511-1.509a2.938 2.938 0 0 0 0-4.147l-.091-.091a.935.935 0 0 1-.185-1.035.924.924 0 0 1 .854-.58h.128A2.935 2.935 0 0 0 31 17.068v-2.136A2.935 2.935 0 0 0 28.068 12ZM29 17.068a.933.933 0 0 1-.932.932h-.128a2.956 2.956 0 0 0-2.083 5.028l.09.091a.934.934 0 0 1 0 1.319l-1.511 1.509a.932.932 0 0 1-1.318 0l-.09-.091A2.957 2.957 0 0 0 18 27.939v.129a.933.933 0 0 1-.932.932h-2.136a.933.933 0 0 1-.932-.932v-.129a2.951 2.951 0 0 0-5.028-2.082l-.091.091a.934.934 0 0 1-1.318 0l-1.51-1.509a.934.934 0 0 1 0-1.319l.091-.091A2.956 2.956 0 0 0 4.06 18h-.128A.933.933 0 0 1 3 17.068v-2.136A.933.933 0 0 1 3.932 14h.128a2.956 2.956 0 0 0 2.083-5.028l-.09-.091a.933.933 0 0 1 0-1.318l1.51-1.511a.932.932 0 0 1 1.318 0l.09.091A2.957 2.957 0 0 0 14 4.061v-.129A.933.933 0 0 1 14.932 3h2.136a.933.933 0 0 1 .932.932v.129a2.956 2.956 0 0 0 5.028 2.082l.091-.091a.932.932 0 0 1 1.318 0l1.51 1.511a.933.933 0 0 1 0 1.318l-.091.091A2.956 2.956 0 0 0 27.94 14h.128a.933.933 0 0 1 .932.932Z"
-                  data-original="#000000" />
-                <path d="M16 9a7 7 0 1 0 7 7 7.008 7.008 0 0 0-7-7Zm0 12a5 5 0 1 1 5-5 5.006 5.006 0 0 1-5 5Z"
-                  data-original="#000000" />
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Personalización</h3>
-              <p>Desarrollo Personalizado para satisfacer tus necesidades.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
+            <article
+              v-for="(feature, index) in featureList"
+              class="hover:animate-background rounded-xl bg-gradient-to-r from-siren-100 via-accent-100 to-primary-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-xs hover:[animation-duration:_4s]  align-middle"
+              :key="index"
+            >
+            <div class="rounded-[10px] bg-white sm:p-6 h-full align-between">
+              <!-- Icono del artículo -->
+              <component :is="feature.icon" class="w-8 h-8 text-siren mb-4" />
+
+              <!-- Título y descripción -->
+              <h3 class="text-xl font-semibold mb-2">{{ feature.title }}</h3>
+              <p class="text-gray-600">{{ feature.description }}</p>
+
+              <!-- Enlace -->
+              <a
+                :href="feature.href"
+                class="text-siren font-semibold inline-block mt-4 hover:underline"
+              >
+                Leer mas
+              </a>
             </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block"
-                viewBox="0 0 682.667 682.667">
-                <defs>
-                  <clipPath id="a" clipPathUnits="userSpaceOnUse">
-                    <path d="M0 512h512V0H0Z" data-original="#000000" />
-                  </clipPath>
-                </defs>
-                <g fill="none" class="stroke-siren" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-miterlimit="10" stroke-width="40" clip-path="url(#a)"
-                  transform="matrix(1.33 0 0 -1.33 0 682.667)">
-                  <path
-                    d="M256 492 60 410.623v-98.925C60 183.674 137.469 68.38 256 20c118.53 48.38 196 163.674 196 291.698v98.925z"
-                    data-original="#000000" />
-                  <path d="M178 271.894 233.894 216 334 316.105" data-original="#000000" />
-                </g>
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Seguridad</h3>
-              <p>Tus datos están protegidos por las últimas medidas de seguridad.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block"
-                viewBox="0 0 512.001 512.001">
-                <path
-                  d="M271.029 0c-33.091 0-61 27.909-61 61s27.909 61 61 61 60-27.909 60-61-26.909-61-60-61zm66.592 122c-16.485 18.279-40.096 30-66.592 30-26.496 0-51.107-11.721-67.592-30-14.392 15.959-23.408 36.866-23.408 60v15c0 8.291 6.709 15 15 15h151c8.291 0 15-6.709 15-15v-15c0-23.134-9.016-44.041-23.408-60zM144.946 460.404 68.505 307.149c-7.381-14.799-25.345-20.834-40.162-13.493l-19.979 9.897c-7.439 3.689-10.466 12.73-6.753 20.156l90 180c3.701 7.423 12.704 10.377 20.083 6.738l19.722-9.771c14.875-7.368 20.938-25.417 13.53-40.272zM499.73 247.7c-12.301-9-29.401-7.2-39.6 3.9l-82 100.8c-5.7 6-16.5 9.6-22.2 9.6h-69.901c-8.401 0-15-6.599-15-15s6.599-15 15-15h60c16.5 0 30-13.5 30-30s-13.5-30-30-30h-78.6c-7.476 0-11.204-4.741-17.1-9.901-23.209-20.885-57.949-30.947-93.119-22.795-19.528 4.526-32.697 12.415-46.053 22.993l-.445-.361-21.696 19.094L174.28 452h171.749c28.2 0 55.201-13.5 72.001-36l87.999-126c9.9-13.201 7.2-32.399-6.299-42.3z"
-                  data-original="#000000" />
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Soporte</h3>
-              <p>Atención al cliente 24/7 para todas tus consultas.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block"
-                viewBox="0 0 504.69 504.69">
-                <path
-                  d="M252.343 262.673c-49.32 0-89.447-40.127-89.447-89.447s40.127-89.447 89.447-89.447 89.447 40.127 89.447 89.447-40.121 89.447-89.447 89.447zm0-158.235c-37.926 0-68.787 30.861-68.787 68.787s30.861 68.787 68.787 68.787 68.787-30.861 68.787-68.787-30.855-68.787-68.787-68.787z"
-                  data-original="#000000" />
-                <path
-                  d="M391.787 405.309c-5.645 0-10.253-4.54-10.325-10.201-.883-70.306-58.819-127.503-129.15-127.503-49.264 0-93.543 27.405-115.561 71.52-8.724 17.473-13.269 36.31-13.517 55.988-.072 5.702-4.757 10.273-10.459 10.201s-10.273-4.757-10.201-10.459c.289-22.814 5.568-44.667 15.691-64.955 25.541-51.164 76.907-82.95 134.047-82.95 81.581 0 148.788 66.349 149.81 147.905.072 5.702-4.494 10.392-10.201 10.459-.046-.005-.087-.005-.134-.005z"
-                  data-original="#000000" />
-                <path
-                  d="M252.343 463.751c-116.569 0-211.408-94.834-211.408-211.408 0-116.569 94.839-211.408 211.408-211.408 116.574 0 211.408 94.839 211.408 211.408 0 116.574-94.834 211.408-211.408 211.408zm0-402.156c-105.18 0-190.748 85.568-190.748 190.748s85.568 190.748 190.748 190.748 190.748-85.568 190.748-190.748S357.523 61.595 252.343 61.595zM71.827 90.07 14.356 32.599c-4.034-4.034-4.034-10.573 0-14.607 4.029-4.034 10.573-4.034 14.607 0l57.466 57.471c4.034 4.034 3.951 10.49 0 14.607-3.792 3.951-11.039 3.698-14.602 0z"
-                  data-original="#000000" />
-                <path
-                  d="M14.717 92.254a10.332 10.332 0 0 1-10.299-9.653L.023 15.751a10.317 10.317 0 0 1 2.929-7.908 10.2 10.2 0 0 1 7.851-3.089L77.56 7.796c5.697.258 10.108 5.093 9.85 10.79s-5.041 10.154-10.79 9.85l-55.224-2.521 3.641 55.327c.377 5.692-3.936 10.614-9.628 10.986a7.745 7.745 0 0 1-.692.026zm403.541-2.184c-4.256-3.796-4.034-10.573 0-14.607l58.116-58.116c4.034-4.034 10.573-4.034 14.607 0s4.034 10.573 0 14.607L432.864 90.07c-4.085 3.951-9.338 4.7-14.606 0z"
-                  data-original="#000000" />
-                <path
-                  d="M489.974 92.254a9.85 9.85 0 0 1-.687-.021c-5.697-.372-10.01-5.294-9.633-10.986l3.641-55.327-55.224 2.515c-5.511.238-10.526-4.147-10.79-9.85-.258-5.702 4.153-10.531 9.85-10.79l66.757-3.042c2.934-.134 5.79.992 7.851 3.089s3.12 4.974 2.929 7.908l-4.401 66.85c-.361 5.465-4.896 9.654-10.293 9.654zM11.711 489.339c-3.791-4.266-4.034-10.573 0-14.607l60.115-60.11c4.029-4.034 10.578-4.034 14.607 0 4.034 4.034 4.034 10.573 0 14.607l-60.115 60.11c-3.827 3.884-11.156 3.884-14.607 0z"
-                  data-original="#000000" />
-                <path
-                  d="M10.327 499.947a10.33 10.33 0 0 1-7.376-3.104 10.312 10.312 0 0 1-2.929-7.902l4.401-66.85c.372-5.697 5.191-10.036 10.986-9.633 5.692.377 10.005 5.294 9.628 10.986l-3.641 55.332 55.224-2.515c5.645-.191 10.531 4.153 10.79 9.85.258 5.697-4.153 10.526-9.85 10.79l-66.763 3.037c-.155.004-.31.009-.47.009zm465.639-13.01-57.708-57.708c-4.034-4.034-4.034-10.573 0-14.607s10.573-4.034 14.607 0l57.708 57.708c4.034 4.034 3.962 10.5 0 14.607-3.817 3.951-10.062 3.951-14.607 0z"
-                  data-original="#000000" />
-                <path
-                  d="M494.359 499.947c-.155 0-.315-.005-.47-.01l-66.757-3.042c-5.702-.263-10.108-5.088-9.85-10.79.263-5.702 5.113-9.984 10.79-9.85l55.219 2.515-3.641-55.332c-.372-5.692 3.941-10.609 9.633-10.986 5.625-.398 10.609 3.946 10.986 9.633l4.401 66.85a10.33 10.33 0 0 1-2.929 7.902 10.323 10.323 0 0 1-7.382 3.11z"
-                  data-original="#000000" />
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Alcance Nacional e Internacional</h3>
-              <p>Expande tu alcance a toda la republica.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block"
-                viewBox="0 0 682.667 682.667">
-                <defs>
-                  <clipPath id="a" clipPathUnits="userSpaceOnUse">
-                    <path d="M0 512h512V0H0Z" data-original="#000000" />
-                  </clipPath>
-                </defs>
-                <g fill="none" class="stroke-siren" stroke-miterlimit="10" stroke-width="30" clip-path="url(#a)"
-                  transform="matrix(1.33 0 0 -1.33 0 682.667)">
-                  <path
-                    d="M226 15v60c0 16.568-13.432 30-30 30H76c-16.568 0-30-13.432-30-30V15Zm-45 165c0-24.853-20.147-45-45-45s-45 20.147-45 45 20.147 45 45 45 45-20.147 45-45ZM466 15v60c0 16.568-13.432 30-30 30H316c-16.568 0-30-13.432-30-30V15Zm-45 165c0-24.853-20.147-45-45-45s-45 20.147-45 45 20.147 45 45 45 45-20.147 45-45Zm-75 167v-50.294L286 347h-60.002L166 296.706V347h-15c-41.421 0-75 33.579-75 75s33.579 75 75 75h210c41.421 0 75-33.579 75-75s-33.579-75-75-75Zm-105 75h30m-90 0h30m90 0h30"
-                    data-original="#000000" />
-                </g>
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Comunicación</h3>
-              <p>Comunicación fluida para tu equipo.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block" viewBox="0 0 512 512">
-                <path
-                  d="M30 256C30 131.383 131.383 30 256 30c46.867 0 91.563 14.211 129.196 40.587h-29.074c-8.284 0-15 6.716-15 15s6.716 15 15 15h70.292c8.284 0 15-6.716 15-15V15.295c0-8.284-6.716-15-15-15s-15 6.716-15 15v37.339C366.987 18.499 312.91 0 256 0 187.62 0 123.333 26.629 74.98 74.98 26.629 123.333 0 187.62 0 256c0 44.921 11.871 89.182 34.33 127.998 2.78 4.806 7.818 7.49 12.997 7.49 2.55 0 5.134-.651 7.499-2.019 7.17-4.149 9.619-13.325 5.471-20.496C40.477 334.718 30 295.652 30 256zm447.67-127.998c-4.15-7.171-13.328-9.619-20.496-5.47-7.17 4.149-9.619 13.325-5.471 20.496C471.523 177.281 482 216.346 482 256c0 124.617-101.383 226-226 226-46.863 0-91.551-14.215-129.18-40.587h29.058c8.284 0 15-6.716 15-15s-6.716-15-15-15H85.587c-8.284 0-15 6.716-15 15v70.292c0 8.284 6.716 15 15 15s15-6.716 15-15v-37.376C145.013 493.475 199.083 512 256 512c68.38 0 132.667-26.629 181.02-74.98C485.371 388.667 512 324.38 512 256c0-44.923-11.871-89.184-34.33-127.998z"
-                  data-original="#000000" />
-                <path
-                  d="M384.413 217.203a14.994 14.994 0 0 0-1.499-11.382l-20-34.641c-4.142-7.174-13.315-9.632-20.49-5.49l-13.602 7.853a108.886 108.886 0 0 0-37.821-21.856V136c0-8.284-6.716-15-15-15h-40c-8.284 0-15 6.716-15 15v15.686a108.89 108.89 0 0 0-37.822 21.856l-13.601-7.853c-7.174-4.144-16.349-1.685-20.49 5.49l-20 34.641c-4.142 7.174-1.684 16.348 5.49 20.49l13.598 7.851c-1.446 7.163-2.176 14.47-2.176 21.838s.729 14.676 2.176 21.838l-13.598 7.851c-7.174 4.142-9.632 13.316-5.49 20.49l20 34.641c4.142 7.175 13.315 9.633 20.49 5.49l13.601-7.853a108.865 108.865 0 0 0 37.822 21.856V376c0 8.284 6.716 15 15 15h40c8.284 0 15-6.716 15-15v-15.686a108.886 108.886 0 0 0 37.821-21.856l13.602 7.853c7.174 4.142 16.348 1.683 20.49-5.49l20-34.641a15.003 15.003 0 0 0 1.499-11.382 14.994 14.994 0 0 0-6.989-9.108l-13.599-7.852C365.271 270.676 366 263.369 366 256s-.729-14.676-2.175-21.838l13.599-7.852a14.995 14.995 0 0 0 6.989-9.107zM256 296c-22.091 0-40-17.909-40-40s17.909-40 40-40 40 17.909 40 40-17.909 40-40 40z"
-                  data-original="#000000" />
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Integración</h3>
-              <p>Integra sin problemas tus herramientas, datos y sistemas existentes.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block" viewBox="0 0 32 32">
-                <path
-                  d="M29 0H3C1.346 0 0 1.346 0 3v12.35a1 1 0 1 0 2 0V3c0-.552.449-1 1-1h26c.551 0 1 .448 1 1v26c0 .552-.449 1-1 1H16.65a1 1 0 1 0 0 2H29c1.654 0 3-1.346 3-3V3c0-1.654-1.346-3-3-3z"
-                  data-original="#000000" />
-                <path
-                  d="M11 18H3c-1.654 0-3 1.346-3 3v8c0 1.654 1.346 3 3 3h8c1.654 0 3-1.346 3-3v-8c0-1.654-1.346-3-3-3zm1 11c0 .552-.449 1-1 1H3c-.551 0-1-.448-1-1v-8c0-.552.449-1 1-1h8c.551 0 1 .448 1 1zm4.707-12.293L23 10.414V12a1 1 0 1 0 2 0V8c0-.536-.456-1-1-1h-4a1 1 0 1 0 0 2h1.586l-6.293 6.293a1 1 0 0 0 0 1.414c.378.378 1.024.39 1.414 0z"
-                  data-original="#000000" />
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Escalabilidad</h3>
-              <p>Escala fácilmente tus recursos para satisfacer las crecientes demandas.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 fill-siren mb-4 inline-block" viewBox="0 0 24 24">
-                <g fill-rule="evenodd" clip-rule="evenodd">
-                  <path
-                    d="M17.03 8.97a.75.75 0 0 1 0 1.06l-4.2 4.2a.75.75 0 0 1-1.154-.114l-1.093-1.639L8.03 15.03a.75.75 0 0 1-1.06-1.06l3.2-3.2a.75.75 0 0 1 1.154.114l1.093 1.639L15.97 8.97a.75.75 0 0 1 1.06 0z"
-                    data-original="#000000" />
-                  <path
-                    d="M13.75 9.5a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 .75.75v2a.75.75 0 0 1-1.5 0v-1.25H14.5a.75.75 0 0 1-.75-.75z"
-                    data-original="#000000" />
-                  <path
-                    d="M3.095 3.095C4.429 1.76 6.426 1.25 9 1.25h6c2.574 0 4.57.51 5.905 1.845C22.24 4.429 22.75 6.426 22.75 9v6c0 2.574-.51 4.57-1.845 5.905C19.571 22.24 17.574 22.75 15 22.75H9c-2.574 0-4.57-.51-5.905-1.845C1.76 19.571 1.25 17.574 1.25 15V9c0-2.574.51-4.57 1.845-5.905zm1.06 1.06C3.24 5.071 2.75 6.574 2.75 9v6c0 2.426.49 3.93 1.405 4.845.916.915 2.419 1.405 4.845 1.405h6c2.426 0 3.93-.49 4.845-1.405.915-.916 1.405-2.419 1.405-4.845V9c0-2.426-.49-3.93-1.405-4.845C18.929 3.24 17.426 2.75 15 2.75H9c-2.426 0-3.93.49-4.845 1.405z"
-                    data-original="#000000" />
-                </g>
-              </svg>
-              <h3 class="text-xl font-semibold mb-2">Analytics & Tracking</h3>
-              <p>Optimiza el seguimiento y análisis del comportamiento de tus clientes. Mejora tus estrategias con insights precisos y actualizados para potenciar cada interacción.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-8 text-siren fill-current mb-4 inline-block"><path fill="currentColor" d="M256.977 22.395c-16.8 0-32.49 7.65-45.864 20.177c-13.372 12.53-24.82 29.98-34.363 51.117c-2 4.428-3.91 9.03-5.736 13.777a265 265 0 0 0-14.83-1.926c-5.77-.575-11.4-.932-16.87-1.06c-16.42-.39-31.427 1.275-44.58 5.262c-17.536 5.317-32.006 15.083-40.406 29.63c-8.4 14.55-9.62 31.964-5.457 49.81c4.165 17.845 13.552 36.484 27.087 55.318c2.84 3.95 5.874 7.912 9.076 11.873a264 264 0 0 0-9.064 11.86c-13.536 18.833-22.923 37.472-27.087 55.318s-2.943 35.26 5.457 49.807c8.4 14.55 22.87 24.315 40.406 29.63c17.537 5.318 38.373 6.507 61.45 4.202c4.838-.484 9.78-1.13 14.808-1.922a264 264 0 0 0 5.746 13.802c9.543 21.14 20.99 38.587 34.363 51.116s29.065 20.18 45.864 20.18s32.49-7.652 45.863-20.18c13.372-12.53 24.82-29.977 34.363-51.116a264 264 0 0 0 5.746-13.8c5.022.79 9.96 1.437 14.794 1.92c23.078 2.304 43.915 1.115 61.45-4.202c17.538-5.316 32.008-15.082 40.408-29.63c8.4-14.55 9.62-31.962 5.457-49.807c-4.165-17.845-13.553-36.484-27.087-55.318a266 266 0 0 0-9.065-11.86a263 263 0 0 0 9.076-11.872c13.535-18.834 22.922-37.473 27.086-55.318c4.164-17.846 2.943-35.26-5.457-49.81c-8.4-14.547-22.87-24.313-40.406-29.63c-13.152-3.987-28.16-5.652-44.578-5.263c-5.474.128-11.105.485-16.874 1.06c-4.84.484-9.787 1.133-14.817 1.925a265 265 0 0 0-5.737-13.776c-9.543-21.14-20.99-38.59-34.363-51.118s-29.065-20.177-45.863-20.177zm0 18.687c11.205 0 22.192 4.923 33.086 15.13c10.893 10.205 21.297 25.653 30.107 45.167a237 237 0 0 1 4.086 9.643c-21.417 4.762-44.1 12.068-67.285 21.83c-23.18-9.76-45.86-17.064-67.273-21.826c1.322-3.31 2.68-6.536 4.086-9.648c8.81-19.515 19.214-34.963 30.108-45.17c10.894-10.205 21.88-15.128 33.087-15.128zm-123.59 82.057q2.706-.027 5.498.036c4.96.11 10.117.43 15.443.963c3.406.34 6.887.775 10.424 1.288c-6.586 20.927-11.6 44.222-14.742 69.18c-20.048 15.2-37.718 31.194-52.55 47.363a237 237 0 0 1-6.327-8.378c-12.495-17.386-20.67-34.12-24.063-48.658s-2.16-26.513 3.442-36.217s15.36-16.757 29.644-21.088c9.375-2.843 20.6-4.375 33.23-4.49zm247.168 0c12.63.115 23.855 1.647 33.23 4.49c14.286 4.33 24.04 11.383 29.643 21.087c5.602 9.704 6.835 21.68 3.443 36.217c-3.39 14.537-11.57 31.272-24.063 48.658a238 238 0 0 1-6.325 8.38c-14.83-16.167-32.495-32.157-52.537-47.355c-3.14-24.962-8.16-48.26-14.746-69.19c3.533-.513 7.01-.95 10.413-1.288a200 200 0 0 1 15.444-.964a172 172 0 0 1 5.498-.037zm-49.92 5.64c4.97 15.438 9.085 32.472 12.156 50.7a508 508 0 0 0-30.446-19.035a508 508 0 0 0-31.69-16.843c17.32-6.455 34.127-11.407 49.98-14.82zm-147.317.003c15.85 3.414 32.655 8.366 49.97 14.82a509 509 0 0 0-31.69 16.842a509 509 0 0 0-30.434 19.024c3.07-18.223 7.184-35.253 12.154-50.687zm73.653 24.46c15.207 6.708 30.643 14.504 46.03 23.388c15.393 8.888 29.87 18.36 43.285 28.18c1.796 16.527 2.762 33.798 2.762 51.57c0 17.762-.963 35.026-2.758 51.546c-13.415 9.818-27.89 19.288-43.278 28.174c-15.39 8.885-30.83 16.684-46.04 23.392c-15.212-6.708-30.652-14.507-46.042-23.392c-15.385-8.883-29.854-18.35-43.264-28.164c-1.795-16.523-2.76-33.79-2.76-51.557c0-17.775.965-35.048 2.762-51.577c13.413-9.817 27.885-19.288 43.273-28.172c15.388-8.883 30.824-16.68 46.03-23.386zm1.264 28.116l-53.502 33.017l53.502 33.02l53.502-33.02l-53.502-33.018zm-110.76 39.134a509 509 0 0 0-1.257 35.885c0 12.198.43 24.172 1.258 35.864c-14.25-11.77-26.943-23.85-37.827-35.873c10.884-12.022 23.577-24.104 37.827-35.876zm219.005.01c14.243 11.77 26.933 23.847 37.813 35.867c-10.88 12.02-23.57 24.097-37.813 35.864a509 509 0 0 0 1.256-35.855c0-12.204-.43-24.18-1.257-35.876zm-173.8 8.394v65.198l56.19 34.677v-65.195zm131.058.034l-56.177 34.67v65.164l56.178-34.67zm-226.28 41.84c14.834 16.17 32.502 32.16 52.548 47.36c3.14 24.955 8.156 48.248 14.74 69.175c-3.53.51-7.006.947-10.406 1.287c-21.304 2.127-39.887.84-54.172-3.49c-14.286-4.33-24.04-11.386-29.643-21.09c-5.602-9.705-6.835-21.68-3.443-36.217s11.568-31.272 24.063-48.658a236 236 0 0 1 6.314-8.367zm319.024.003c2.207 2.8 4.32 5.59 6.313 8.364c12.494 17.385 20.67 34.12 24.062 48.657s2.162 26.512-3.44 36.217c-5.604 9.704-15.36 16.76-29.646 21.09c-14.284 4.33-32.864 5.617-54.168 3.49a239 239 0 0 1-10.395-1.285c6.585-20.932 11.6-44.23 14.74-69.19c20.04-15.196 37.706-31.182 52.535-47.345zm-73.687 62.483c-3.07 18.226-7.184 35.26-12.154 50.697c-15.854-3.413-32.663-8.368-49.984-14.822a510 510 0 0 0 31.7-16.848a509 509 0 0 0 30.44-19.027zm-171.635.01a508 508 0 0 0 30.424 19.017a510 510 0 0 0 31.7 16.848c-17.316 6.453-34.12 11.407-49.973 14.82c-4.97-15.434-9.08-32.464-12.15-50.685zm86.37.85l.68.42l.677-.42h-1.356zm-.56 45.767c23.19 9.76 45.874 17.065 67.294 21.826a237 237 0 0 1-4.094 9.67c-8.81 19.513-19.214 34.96-30.108 45.167c-10.893 10.206-21.88 15.13-33.085 15.13s-22.193-4.924-33.086-15.13s-21.297-25.654-30.107-45.168a239 239 0 0 1-4.095-9.67c21.416-4.762 44.098-12.066 67.283-21.825z"/></svg>
-              <h3 class="text-xl font-semibold mb-2">Ciencia de Datos</h3>
-              <p>Transforma tus datos en información accionable. Presenta tus métricas de forma clara y visual para que puedas tomar decisiones estratégicas basadas en datos.</p>
-              <a href="javascript:void(0);" class="text-siren font-semibold inline-block mt-2 hover:underline">Leer mas</a>
-            </div>
+            </article>
           </div>
         </div>
       </div>
