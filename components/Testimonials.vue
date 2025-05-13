@@ -81,7 +81,9 @@ const reviewList: ReviewProps[] = [
               <p class="mt-1 text-xs">Gerente de Medicion Digital -  Analitica Omnicanal </p>
             </div>
             <div class="mt-4">
-              <p>Colaborar con Sunset en el desarrollo de nuestro acortador ha sido una decisión clave para fortalecer nuestra estrategia digital. Este acortador de enlaces, diseñado especialmente para nosotros, no solo ha simplificado la gestión de URLs, sino que nos ha permitido obtener analítica interna precisa sobre los canales de distribución. Gracias a la medición de clics en tiempo real, ahora entendemos mejor el comportamiento de nuestros usuarios y podemos tomar decisiones más informadas para optimizar cada campaña. La experiencia y visión del equipo de Sunset hicieron que este proyecto se convirtiera en una herramienta estratégica para nosotros.</p>
+              <p>Gracias a Sunset desarrollamos nuestro propio acortador de url adaptado a nuestras necesidades.
+Hoy podemos medir clics por canal y entender mejor el rendimiento de nuestras campañas.
+Ha sido una herramienta clave para mejorar nuestra analítica interna</p>
             </div>
           </div>
           <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
@@ -91,7 +93,9 @@ const reviewList: ReviewProps[] = [
               <p class="mt-1 text-xs">Director de tecnologia en TrazoLab</p>
             </div>
             <div class="mt-4">
-              <p>Sunset ha sido un aliado clave en el crecimiento tecnológico de Trazolab. Su equipo nos ayudó a estructurar soluciones a la medida que han optimizado nuestros procesos de análisis y visualización de datos. Más allá del desarrollo técnico, valoramos su enfoque estratégico y su disposición para adaptarse a nuestras dinámicas como startup. Con Sunset, no solo obtuvimos tecnología, obtuvimos visión.</p>
+              <p>Con Sunset logramos estructurar procesos de análisis más sólidos y automatizados.
+Su equipo no solo aportó desarrollo técnico, sino una visión estratégica clara.
+Hoy Trazolab opera con mayor claridad gracias a sus soluciones.</p>
             </div>
           </div>
         </div>
