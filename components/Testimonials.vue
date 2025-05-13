@@ -77,34 +77,21 @@ const reviewList: ReviewProps[] = [
           <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
             <div>
               <img src="https://readymadeui.com/profile_2.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">Jesse Tirado</h4>
-              <p class="mt-1 text-xs">Gerente de Marketing en oceanica</p>
+              <h4 class="whitespace-nowrap font-semibold mt-2">Roberto Renedo</h4>
+              <p class="mt-1 text-xs">Gerente de Medicion Digital -  Analitica Omnicanal </p>
             </div>
             <div class="mt-4">
-              <p>The service was amazing. I never had to wait that long for my food.
-                The staff was friendly and attentive, and the delivery was impressively prompt.</p>
+              <p>Colaborar con Sunset en el desarrollo de nuestro acortador ha sido una decisión clave para fortalecer nuestra estrategia digital. Este acortador de enlaces, diseñado especialmente para nosotros, no solo ha simplificado la gestión de URLs, sino que nos ha permitido obtener analítica interna precisa sobre los canales de distribución. Gracias a la medición de clics en tiempo real, ahora entendemos mejor el comportamiento de nuestros usuarios y podemos tomar decisiones más informadas para optimizar cada campaña. La experiencia y visión del equipo de Sunset hicieron que este proyecto se convirtiera en una herramienta estratégica para nosotros.</p>
             </div>
           </div>
           <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
             <div>
               <img src="https://readymadeui.com/profile_3.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">Efren Villarreal Coronel</h4>
-              <p class="mt-1 text-xs">Gerente Tecnologia e Innovacion Quezaltic</p>
+              <h4 class="whitespace-nowrap font-semibold mt-2">Ruben Zatarian</h4>
+              <p class="mt-1 text-xs">Director de tecnologia en TrazoLab</p>
             </div>
             <div class="mt-4">
-              <p>The service was amazing. I never had to wait that long for my food.
-                The staff was friendly and attentive, and the delivery was impressively prompt.</p>
-            </div>
-          </div>
-          <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
-            <div>
-              <img src="https://readymadeui.com/profile_4.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">Simon Konecki</h4>
-              <p class="mt-1 text-xs">Founder of Labar</p>
-            </div>
-            <div class="mt-4">
-              <p>The service was amazing. I never had to wait that long for my food.
-                The staff was friendly and attentive, and the delivery was impressively prompt.</p>
+              <p>Sunset ha sido un aliado clave en el crecimiento tecnológico de Trazolab. Su equipo nos ayudó a estructurar soluciones a la medida que han optimizado nuestros procesos de análisis y visualización de datos. Más allá del desarrollo técnico, valoramos su enfoque estratégico y su disposición para adaptarse a nuestras dinámicas como startup. Con Sunset, no solo obtuvimos tecnología, obtuvimos visión.</p>
             </div>
           </div>
         </div>
