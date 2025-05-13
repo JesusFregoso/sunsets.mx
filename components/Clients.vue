@@ -16,8 +16,16 @@ interface clientsProps {
 
 const clients: clientsProps[] = [
   {
-    img: "/clients/azamaz.png",
-    name: "Azamaz",
+    img: "/clients/trazolab.png",
+    name: "Trazolab",
+  },
+  {
+    img: "/clients/ceropapel.png",
+    name: "Ceropapel",
+  },
+  {
+    img: "/clients/dmenu.png",
+    name: "DMENU",
   },
   {
     img: "/clients/foden.png",
@@ -26,10 +34,6 @@ const clients: clientsProps[] = [
   {
     img: "/clients/grupopetroil.png",
     name: "Grupo Petroil",
-  },
-  {
-    img: "/clients/observatorio.png",
-    name: "Observatorio",
   },
 ];
 

@@ -1,85 +1,71 @@
-
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue"
-  import { inView, animate } from "motion"
 
 const container = useTemplateRef("container")
-let stopViewTracking
+const openNav = ref(false)
 
-onMounted(() => {
-  stopViewTracking = inView(container.value, () => {
-
-        animate(container.value, { scale: 1.2 })
-
-    return () => {
-            animate(container.value, { scale: 1 })
-    }
-  })
-})  
-onUnmounted(() => stopViewTracking())
-
+function toggleNav () {
+    openNav.value = !openNav.value
+} 
 </script>
 
 <template>
     <header>
-        <div class="absolute top-2 right-0 left-0 z-40 pt-14" ref="container" >
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:max-w-none">
-                    <div class="flex items-center justify-between">
-                        <a aria-label="Home" href="/"><svg viewBox="0 0 32 32" aria-hidden="true" class="h-8 sm:hidden">
-                                <rect clip-path="url(#:r9:-clip)"
-                                    class="h-8 transition-all duration-300 fill-neutral-950 w-0 group-hover/logo:w-8">
-                                </rect>
-                                <use href="#:r9:-path" class="stroke-neutral-950" fill="none" stroke-width="1.5"></use>
-                                <defs>
-                                    <path id=":r9:-path"
-                                        d="M3.25 26v.75H7c1.305 0 2.384-.21 3.346-.627.96-.415 1.763-1.02 2.536-1.752.695-.657 1.39-1.443 2.152-2.306l.233-.263c.864-.975 1.843-2.068 3.071-3.266 1.209-1.18 2.881-1.786 4.621-1.786h5.791V5.25H25c-1.305 0-2.384.21-3.346.627-.96.415-1.763 1.02-2.536 1.751-.695.658-1.39 1.444-2.152 2.307l-.233.263c-.864.975-1.843 2.068-3.071 3.266-1.209 1.18-2.881 1.786-4.621 1.786H3.25V26Z">
-                                    </path>
-                                    <clipPath id=":r9:-clip">
-                                        <use href="#:r9:-path"></use>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <svg viewBox="0 0 130 32" aria-hidden="true" class="hidden h-8 sm:block">
-                                <svg aria-hidden="true" viewBox="0 0 32 32" preserveAspectRatio="xMinYMid meet">
-                                    <rect clip-path="url(#:ra:-clip)"
+
+            <div class="absolute top-2 right-0 left-0 z-40 pt-14">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="mx-auto max-w-2xl lg:max-w-none">
+                        <div class="flex items-center justify-between"><a aria-label="Home" href="/"><svg
+                                    viewBox="0 0 32 32" aria-hidden="true" class="h-8 sm:hidden">
+                                    <rect clip-path="url(#:R1ara:-clip)"
                                         class="h-8 transition-all duration-300 fill-neutral-950 w-0 group-hover/logo:w-8">
                                     </rect>
-                                    <use href="#:ra:-path" class="stroke-neutral-950" fill="none" stroke-width="1.5">
+                                    <use href="#:R1ara:-path" class="stroke-neutral-950" fill="none" stroke-width="1.5">
                                     </use>
                                     <defs>
-                                        <path id=":ra:-path"
+                                        <path id=":R1ara:-path"
                                             d="M3.25 26v.75H7c1.305 0 2.384-.21 3.346-.627.96-.415 1.763-1.02 2.536-1.752.695-.657 1.39-1.443 2.152-2.306l.233-.263c.864-.975 1.843-2.068 3.071-3.266 1.209-1.18 2.881-1.786 4.621-1.786h5.791V5.25H25c-1.305 0-2.384.21-3.346.627-.96.415-1.763 1.02-2.536 1.751-.695.658-1.39 1.444-2.152 2.307l-.233.263c-.864.975-1.843 2.068-3.071 3.266-1.209 1.18-2.881 1.786-4.621 1.786H3.25V26Z">
                                         </path>
-                                        <clipPath id=":ra:-clip">
-                                            <use href="#:ra:-path"></use>
+                                        <clipPath id=":R1ara:-clip">
+                                            <use href="#:R1ara:-path"></use>
                                         </clipPath>
                                     </defs>
-                                </svg>
-                                <path class="fill-neutral-950"
-                                    d="M52.928 23.716c5.184 0 7.992-1.992 7.992-5.28 0-3.888-2.688-4.8-7.512-5.376-3.36-.408-4.728-.672-4.728-2.448 0-1.464 1.44-2.376 3.912-2.376 2.4 0 3.936.864 4.104 2.784h3.576c-.24-3.288-3-5.232-7.536-5.232-4.728 0-7.68 1.896-7.68 5.208 0 3.48 2.712 4.464 7.416 5.04 3.216.408 4.8.648 4.8 2.664 0 1.584-1.392 2.544-4.224 2.544-3.048 0-4.68-1.176-4.752-3.288H44.6c.072 3.408 2.616 5.76 8.328 5.76Zm14.175-.216h3.312v-2.928h-1.968c-.84 0-1.272-.24-1.272-1.104v-6.144h3.24v-2.592h-3.24V6.676l-3.36.648v3.408h-2.496v2.592h2.496v7.2c0 2.04 1.248 2.976 3.288 2.976Zm10.078.216c2.16 0 4.104-1.008 4.944-2.64h.168l.144 2.424h3.288V10.732h-3.432v6.336c0 2.4-1.584 4.032-3.984 4.032-2.328 0-3.264-1.368-3.264-3.936v-6.432h-3.432v7.032c0 4.416 2.256 5.952 5.568 5.952Zm16.24.048c2.52 0 4.2-1.008 4.944-2.496h.168l.072 2.232h3.264V6.004h-3.408v7.008h-.168c-.792-1.56-2.592-2.52-4.848-2.52-3.816 0-6.384 2.592-6.384 6.624 0 4.056 2.568 6.648 6.36 6.648Zm1.032-2.616c-2.472 0-3.96-1.536-3.96-4.032s1.488-4.008 3.96-4.008 3.984 1.512 3.984 3.648v.744c0 2.136-1.536 3.648-3.984 3.648Zm9.485-12.216h3.408V6.004h-3.408v2.928Zm0 14.568h3.408V10.732h-3.408V23.5Zm12.481.24c4.584 0 7.56-2.52 7.56-6.624 0-4.152-3-6.624-7.56-6.624s-7.56 2.52-7.56 6.624c0 4.128 3.024 6.624 7.56 6.624Zm0-2.64c-2.592 0-4.128-1.56-4.128-3.984s1.536-3.984 4.128-3.984c2.616 0 4.152 1.536 4.152 3.984 0 2.424-1.56 3.984-4.152 3.984Zm8.794 2.4h3.384v-2.88h-3.384v2.88Z">
-                                </path>
-                            </svg>
-                        </a>
-                        <div class="flex items-center gap-x-8">
-                            <a class="inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition bg-neutral-950 text-white hover:bg-neutral-800"
-                                href="/contact"><span class="relative top-px">Contact us</span></a><button type="button"
-                                aria-expanded="false" aria-controls=":r8:"
-                                class="group -m-2.5 rounded-full p-2.5 transition hover:bg-neutral-950/10"
-                                aria-label="Toggle navigation">
-                                <svg viewBox="0 0 24 24" aria-hidden="true"
-                                    class="h-6 w-6 fill-neutral-950 group-hover:fill-neutral-700">
-                                    <path d="M2 6h20v2H2zM2 16h20v2H2z"></path>
-                                </svg>
-                            </button>
+                                </svg><svg viewBox="0 0 130 32" aria-hidden="true" class="hidden h-8 sm:block"><svg
+                                        viewBox="0 0 32 32" aria-hidden="true" preserveAspectRatio="xMinYMid meet">
+                                        <rect clip-path="url(#:R6ara:-clip)"
+                                            class="h-8 transition-all duration-300 fill-neutral-950 w-0 group-hover/logo:w-8">
+                                        </rect>
+                                        <use href="#:R6ara:-path" class="stroke-neutral-950" fill="none"
+                                            stroke-width="1.5"></use>
+                                        <defs>
+                                            <path id=":R6ara:-path"
+                                                d="M3.25 26v.75H7c1.305 0 2.384-.21 3.346-.627.96-.415 1.763-1.02 2.536-1.752.695-.657 1.39-1.443 2.152-2.306l.233-.263c.864-.975 1.843-2.068 3.071-3.266 1.209-1.18 2.881-1.786 4.621-1.786h5.791V5.25H25c-1.305 0-2.384.21-3.346.627-.96.415-1.763 1.02-2.536 1.751-.695.658-1.39 1.444-2.152 2.307l-.233.263c-.864.975-1.843 2.068-3.071 3.266-1.209 1.18-2.881 1.786-4.621 1.786H3.25V26Z">
+                                            </path>
+                                            <clipPath id=":R6ara:-clip">
+                                                <use href="#:R6ara:-path"></use>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <path class="fill-neutral-950"
+                                        d="M52.928 23.716c5.184 0 7.992-1.992 7.992-5.28 0-3.888-2.688-4.8-7.512-5.376-3.36-.408-4.728-.672-4.728-2.448 0-1.464 1.44-2.376 3.912-2.376 2.4 0 3.936.864 4.104 2.784h3.576c-.24-3.288-3-5.232-7.536-5.232-4.728 0-7.68 1.896-7.68 5.208 0 3.48 2.712 4.464 7.416 5.04 3.216.408 4.8.648 4.8 2.664 0 1.584-1.392 2.544-4.224 2.544-3.048 0-4.68-1.176-4.752-3.288H44.6c.072 3.408 2.616 5.76 8.328 5.76Zm14.175-.216h3.312v-2.928h-1.968c-.84 0-1.272-.24-1.272-1.104v-6.144h3.24v-2.592h-3.24V6.676l-3.36.648v3.408h-2.496v2.592h2.496v7.2c0 2.04 1.248 2.976 3.288 2.976Zm10.078.216c2.16 0 4.104-1.008 4.944-2.64h.168l.144 2.424h3.288V10.732h-3.432v6.336c0 2.4-1.584 4.032-3.984 4.032-2.328 0-3.264-1.368-3.264-3.936v-6.432h-3.432v7.032c0 4.416 2.256 5.952 5.568 5.952Zm16.24.048c2.52 0 4.2-1.008 4.944-2.496h.168l.072 2.232h3.264V6.004h-3.408v7.008h-.168c-.792-1.56-2.592-2.52-4.848-2.52-3.816 0-6.384 2.592-6.384 6.624 0 4.056 2.568 6.648 6.36 6.648Zm1.032-2.616c-2.472 0-3.96-1.536-3.96-4.032s1.488-4.008 3.96-4.008 3.984 1.512 3.984 3.648v.744c0 2.136-1.536 3.648-3.984 3.648Zm9.485-12.216h3.408V6.004h-3.408v2.928Zm0 14.568h3.408V10.732h-3.408V23.5Zm12.481.24c4.584 0 7.56-2.52 7.56-6.624 0-4.152-3-6.624-7.56-6.624s-7.56 2.52-7.56 6.624c0 4.128 3.024 6.624 7.56 6.624Zm0-2.64c-2.592 0-4.128-1.56-4.128-3.984s1.536-3.984 4.128-3.984c2.616 0 4.152 1.536 4.152 3.984 0 2.424-1.56 3.984-4.152 3.984Zm8.794 2.4h3.384v-2.88h-3.384v2.88Z">
+                                    </path>
+                                </svg></a>
+                            <div class="flex items-center gap-x-8"><a
+                                    class="inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition bg-neutral-950 text-white hover:bg-neutral-800"
+                                    href="/contact"><span class="relative top-px">Contact us</span></a>
+                                    <button
+                                    type="button"
+                                    class="group -m-2.5 rounded-full p-2.5 transition hover:bg-neutral-950/10"
+                                    @click="toggleNav"><svg viewBox="0 0 24 24" aria-hidden="true"
+                                        class="h-6 w-6 fill-neutral-950 group-hover:fill-neutral-700">
+                                        <path d="M2 6h20v2H2zM2 16h20v2H2z"></path>
+                                    </svg></button></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id=":r8:" class="relative z-50 overflow-hidden bg-neutral-950 pt-2"  aria-hidden="true">
-            <div class="bg-neutral-800" style="transform: none; transform-origin: 50% 50% 0px">
-                <div class="bg-neutral-950 pt-14 pb-16">
+        <div class="relative z-50 overflow-hidden bg-neutral-950 pt-2">
+            <div class="bg-neutral-800" v-show="openNav">
+                <div class="bg-neutral-950 pt-14 pb-16" >
                     <div class="mx-auto max-w-7xl px-6 lg:px-8">
                         <div class="mx-auto max-w-2xl lg:max-w-none">
                             <div class="flex items-center justify-between">
@@ -120,10 +106,9 @@ onUnmounted(() => stopViewTracking())
                                     </svg></a>
                                 <div class="flex items-center gap-x-8">
                                     <a class="inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition bg-white text-neutral-950 hover:bg-neutral-200"
-                                        href="/contact"><span class="relative top-px">Contact us</span></a><button
-                                        type="button" aria-expanded="false" aria-controls=":r8:"
-                                        class="group -m-2.5 rounded-full p-2.5 transition hover:bg-white/10"
-                                        aria-label="Toggle navigation">
+                                        href="/contact"><span class="relative top-px">Contact us</span></a>
+                                    <button type="button" aria-expanded="false" aria-controls=":r8:"
+                                        class="group -m-2.5 rounded-full p-2.5 transition hover:bg-white/10" @click="toggleNav">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"
                                             class="h-6 w-6 fill-white group-hover:fill-neutral-200">
                                             <path d="m5.636 4.223 14.142 14.142-1.414 1.414L4.222 5.637z"></path>
@@ -239,95 +224,461 @@ onUnmounted(() => stopViewTracking())
             </div>
         </div>
     </header>
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40">
-        <div class="mx-auto max-w-2xl lg:max-w-none">
-            <div>
-                <div class="*:mx-auto *:max-w-3xl [&amp;>:first-child]:mt-0! [&amp;>:last-child]:mb-0!">
-                    <div class="typography">
-                        <!-- -->
-                        <!-- -->
-                        <h2>Overview</h2>
-                        <p>Having written one of the most shared posts on medium.com (“<em>How to cash out your Dad’s
-                                401K without him knowing</em>”) FamilyFund approached us looking to build out their own
-                            blog.</p>
-                        <p>The blog would help drive new traffic to their site and serve as a resource-hub for users
-                            already trying to exploit their network for money. Because it was so important that they own
-                            their own content, we decided that an on-prem solution would be best.</p>
-                        <p>We installed 24 Mac Minis bought from craigslist in the storage cupboard of their office. One
-                            machine would be used for the web server and another one for the build server. The other 22
-                            were for redundancy, and to DDOS squarespace.com every few months to keep them on their
-                            toes.</p>
-                        <p>To optimise their search traffic we used an innovative technique. Every post has a shadow
-                            post only visible to web crawlers that is some variation of <em>“Gary Vee is looking to
-                                invest in new founders”</em>. Like bees to honey.</p>
-                        <h2>What we did</h2>
-                    </div>
-                    <ul role="list" class="my-6 flex flex-wrap gap-4">
-                        <li class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600">Frontend
-                            (Next.js)</li>
-                        <li class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600">Custom CMS</li>
-                        <li class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600">SEO</li>
-                        <li class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600">Infrastructure
-                        </li>
-                    </ul>
-                    <div class="typography">
-                    </div>
-                    <figure
-                        class="grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-8 sm:grid-cols-12 sm:grid-rows-[1fr_auto_auto_1fr] sm:gap-x-10 lg:gap-x-16 my-32">
-                        <blockquote
-                            class="col-span-2 text-xl/7 text-neutral-600 sm:col-span-7 sm:col-start-6 sm:row-start-2">
-                            <p>Working with Studio, we felt more like a partner than a customer. They really
-                                resonated with our mission to change the way people convince their parents to
-                                cash out their pensions.</p>
-                        </blockquote>
-                        <div
-                            class="col-start-1 row-start-2 overflow-hidden rounded-xl bg-neutral-100 sm:col-span-5 sm:row-span-full sm:rounded-3xl">
+
+    <div class="relative flex flex-auto overflow-hidden bg-white pt-14 rounded-md origin-[50%_50%_0px]">
+        <div class="relative isolate flex w-full flex-col pt-9 rounded-md origin-[50%_50%_0px]">
+            <svg aria-hidden="true"
+                class="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-neutral-50 stroke-neutral-950/5 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]">
+                <rect width="100%" height="100%" fill="url(#:R1lba:)" stroke-width="0"></rect><svg x="50%" y="-96"
+                    stroke-width="0" class="overflow-visible">
+                    <path class="translate-64-160"
+                        d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                    </path>
+                    <path class="translate-128-320"
+                        d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                    </path>
+                    <path class="translate-288-480"
+                        d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                    </path>
+                    <path class="translate-512-320"
+                        d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                    </path>
+                    <path class="translate-544-640"
+                        d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                    </path>
+                    <path class="translate-320-800"
+                        d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                    </path>
+                </svg>
+                <defs>
+                    <pattern id=":R1lba:" width="96" height="480" x="50%" patternUnits="userSpaceOnUse"
+                        class="translate-0-6" fill="none">
+                        <path
+                            d="M128 0 98.572 147.138A16 16 0 0 1 82.883 160H13.117a16 16 0 0 0-15.69 12.862l-26.855 134.276A16 16 0 0 1-45.117 320H-116M64-160 34.572-12.862A16 16 0 0 1 18.883 0h-69.766a16 16 0 0 0-15.69 12.862l-26.855 134.276A16 16 0 0 1-109.117 160H-180M192 160l-29.428 147.138A15.999 15.999 0 0 1 146.883 320H77.117a16 16 0 0 0-15.69 12.862L34.573 467.138A16 16 0 0 1 18.883 480H-52M-136 480h58.883a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1-18.883 320h69.766a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1 109.117 160H192M-72 640h58.883a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1 45.117 480h69.766a15.999 15.999 0 0 0 15.689-12.862l26.856-134.276A15.999 15.999 0 0 1 173.117 320H256M-200 320h58.883a15.999 15.999 0 0 0 15.689-12.862l26.856-134.276A16 16 0 0 1-82.883 160h69.766a16 16 0 0 0 15.69-12.862L29.427 12.862A16 16 0 0 1 45.117 0H128">
+                        </path>
+                    </pattern>
+                </defs>
+            </svg>
+            <main class="w-full flex-auto">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 md:mt-56">
+                    <div class="mx-auto max-w-2xl lg:max-w-none">
+                        <div class="max-w-3xl" style="opacity: 1; transform: none;">
+                            <h1
+                                class="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
+                                Award-winning development studio based in Denmark.</h1>
+                            <p class="mt-6 text-xl text-neutral-600">We are a development studio working at the
+                                intersection of design and technology. It’s a really busy intersection though — a lot of
+                                our staff have been involved in hit and runs.</p>
                         </div>
-                        <figcaption class="text-sm text-neutral-950 sm:col-span-7 sm:row-start-3 sm:text-base"><span
-                                class="font-semibold">Debra Fiscal</span><span class="hidden font-semibold sm:inline">,
-                            </span><br class="sm:hidden"><span class="sm:font-semibold">CEO of FamilyFund</span>
-                        </figcaption>
-                    </figure>
-                    <div class="typography">
-                    </div>
-                    <div class="my-32 max-w-none!">
-                        <dl
-                            class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col lg:grid-cols-none">
-                              <Transition :css="false">
-                                <div class="animate flex flex-col-reverse pl-8 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
-                            >
-                                <dt class="mt-2 text-base text-neutral-600">Less traffic</dt>
-                                <dd class="font-display text-3xl font-semibold text-neutral-950 sm:text-4xl">25%</dd>
-                            </div>
-                              </Transition>
-                              <Transition :css="false">
-                                <div class="animate flex flex-col-reverse pl-8 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
-                            >
-                                <dt class="mt-2 text-base text-neutral-600">Page load times</dt>
-                                <dd class="font-display text-3xl font-semibold text-neutral-950 sm:text-4xl">10x</dd>
-                            </div>
-                            </Transition>
-                              <Transition :css="false">
-                                <div class="animate flex flex-col-reverse pl-8 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
-                            >
-                                <dt class="mt-2 text-base text-neutral-600">Higher infra costs</dt>
-                                <dd class="font-display text-3xl font-semibold text-neutral-950 sm:text-4xl">15%</dd>
-                            </div>
-                              </Transition>
-                              <Transition :css="false">
-                                <div class="animate flex flex-col-reverse pl-8 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-6 before:w-px after:top-8 after:bottom-0 after:left-0 after:w-px"
-                            >
-                                <dt class="mt-2 text-base text-neutral-600">Legal fees</dt>
-                                <dd class="font-display text-3xl font-semibold text-neutral-950 sm:text-4xl">$1.2M</dd>
-                            </div>
-                              </Transition>
-                        </dl>
-                    </div>
-                    <div class="typography">
-                        <!-- -->
                     </div>
                 </div>
-            </div>
+                <div class="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
+                    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                        <div class="mx-auto max-w-2xl lg:max-w-none">
+                            <div class="flex items-center gap-x-8" style="opacity: 1; transform: none;">
+                                <h2
+                                    class="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
+                                    We’ve worked with hundreds of amazing people</h2>
+                                <div class="h-px flex-auto bg-neutral-800"></div>
+                            </div>
+                            <div>
+                                <ul role="list" class="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="Phobia" loading="lazy"
+                                                width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="Family Fund" loading="lazy"
+                                                width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="Unseal" loading="lazy"
+                                                width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="Mail Smirk" loading="lazy"
+                                                width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="Home Work" loading="lazy"
+                                                width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="Green Life" loading="lazy"
+                                                width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="Bright Path" loading="lazy"
+                                                width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                    <li>
+                                        <div style="opacity: 1; transform: none;"><img alt="North Adventures"
+                                                loading="lazy" width="184" height="36" decoding="async" data-nimg="1"
+                                                style="color:transparent"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40">
+                    <div class="mx-auto max-w-2xl lg:max-w-none">
+                        <div class="max-w-2xl" style="opacity: 1; transform: none;">
+                            <h2><span
+                                    class="block font-display tracking-tight [text-wrap:balance] text-4xl font-medium sm:text-5xl text-neutral-950">Harnessing
+                                    technology for a brighter future</span></h2>
+                            <div class="mt-6 text-xl text-neutral-600">
+                                <p>We believe technology is the answer to the world’s greatest challenges. It’s also the
+                                    cause, so we find ourselves in bit of a catch 22 situation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-16">
+                    <div class="mx-auto max-w-2xl lg:max-w-none">
+                        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                            <div class="flex" style="opacity: 1; transform: none;">
+                                <article
+                                    class="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+                                    <h3><a href="/work/family-fund"><span
+                                                class="absolute inset-0 rounded-3xl"></span><img alt="FamilyFund"
+                                                loading="lazy" width="36" height="36" decoding="async" data-nimg="1"
+                                                class="h-16 w-16" style="color:transparent" src=""></a></h3>
+                                    <p class="mt-6 flex gap-x-2 text-sm text-neutral-950"><time datetime="2023"
+                                            class="font-semibold">2023</time><span class="text-neutral-300"
+                                            aria-hidden="true">/</span><span>Case study</span></p>
+                                    <p class="mt-6 font-display text-2xl font-semibold text-neutral-950">Skip the bank,
+                                        borrow from those you trust</p>
+                                    <p class="mt-4 text-base text-neutral-600">FamilyFund is a crowdfunding platform for
+                                        friends and family. Allowing users to take personal loans from their network
+                                        without a traditional financial institution.</p>
+                                </article>
+                            </div>
+                            <div class="flex" style="opacity: 1; transform: none;">
+                                <article
+                                    class="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+                                    <h3><a href="/work/unseal"><span class="absolute inset-0 rounded-3xl"></span><img
+                                                alt="Unseal" loading="lazy" width="36" height="36" decoding="async"
+                                                data-nimg="1" class="h-16 w-16" style="color:transparent" src=""></a>
+                                    </h3>
+                                    <p class="mt-6 flex gap-x-2 text-sm text-neutral-950"><time datetime="2022"
+                                            class="font-semibold">2022</time><span class="text-neutral-300"
+                                            aria-hidden="true">/</span><span>Case study</span></p>
+                                    <p class="mt-6 font-display text-2xl font-semibold text-neutral-950">Get a hodl of
+                                        your health</p>
+                                    <p class="mt-4 text-base text-neutral-600">Unseal is the first NFT platform where
+                                        users can mint and trade NFTs of their own personal health records, allowing
+                                        them to take control of their data.</p>
+                                </article>
+                            </div>
+                            <div class="flex" style="opacity: 1; transform: none;">
+                                <article
+                                    class="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+                                    <h3><a href="/work/phobia"><span class="absolute inset-0 rounded-3xl"></span><img
+                                                alt="Phobia" loading="lazy" width="36" height="36" decoding="async"
+                                                data-nimg="1" class="h-16 w-16" style="color:transparent" src=""></a>
+                                    </h3>
+                                    <p class="mt-6 flex gap-x-2 text-sm text-neutral-950"><time datetime="2022"
+                                            class="font-semibold">2022</time><span class="text-neutral-300"
+                                            aria-hidden="true">/</span><span>Case study</span></p>
+                                    <p class="mt-6 font-display text-2xl font-semibold text-neutral-950">Overcome your
+                                        fears, find your match</p>
+                                    <p class="mt-4 text-base text-neutral-600">Find love in the face of fear — Phobia is
+                                        a dating app that matches users based on their mutual phobias so they can be
+                                        scared together.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative isolate bg-neutral-50 py-16 sm:py-28 md:py-32 mt-24 sm:mt-32 lg:mt-40"><svg
+                        aria-hidden="true"
+                        class="absolute inset-0 -z-10 h-full w-full fill-neutral-100 stroke-neutral-950/5 [mask-image:linear-gradient(to_bottom_left,white_50%,transparent_60%)]">
+                        <rect width="100%" height="100%" fill="url(#:Rp7qlba:)" stroke-width="0"></rect><svg x="50%"
+                            y="-256" stroke-width="0" class="overflow-visible">
+                            <path class="translate-64-160"
+                                d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                            </path>
+                            <path class="translate-128-320"
+                                d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                            </path>
+                            <path class="translate-288-480"
+                                d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                            </path>
+                            <path class="translate-512-320"
+                                d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                            </path>
+                            <path class="translate-544-640"
+                                d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                            </path>
+                            <path class="translate-320-800"
+                                d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z">
+                            </path>
+                        </svg>
+                        <defs>
+                            <pattern id=":Rp7qlba:" width="96" height="480" x="50%" patternUnits="userSpaceOnUse"
+                                patternclass="translate-0--56)" fill="none">
+                                <path
+                                    d="M128 0 98.572 147.138A16 16 0 0 1 82.883 160H13.117a16 16 0 0 0-15.69 12.862l-26.855 134.276A16 16 0 0 1-45.117 320H-116M64-160 34.572-12.862A16 16 0 0 1 18.883 0h-69.766a16 16 0 0 0-15.69 12.862l-26.855 134.276A16 16 0 0 1-109.117 160H-180M192 160l-29.428 147.138A15.999 15.999 0 0 1 146.883 320H77.117a16 16 0 0 0-15.69 12.862L34.573 467.138A16 16 0 0 1 18.883 480H-52M-136 480h58.883a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1-18.883 320h69.766a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1 109.117 160H192M-72 640h58.883a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1 45.117 480h69.766a15.999 15.999 0 0 0 15.689-12.862l26.856-134.276A15.999 15.999 0 0 1 173.117 320H256M-200 320h58.883a15.999 15.999 0 0 0 15.689-12.862l26.856-134.276A16 16 0 0 1-82.883 160h69.766a16 16 0 0 0 15.69-12.862L29.427 12.862A16 16 0 0 1 45.117 0H128">
+                                </path>
+                            </pattern>
+                        </defs>
+                    </svg>
+                    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                        <div class="mx-auto max-w-2xl lg:max-w-none">
+                            <div style="opacity: 1; transform: none;">
+                                <figure class="mx-auto max-w-4xl">
+                                    <blockquote
+                                        class="relative font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
+                                        <p
+                                            class="before:content-['“'] after:content-['”'] sm:before:absolute sm:before:right-full">
+                                            The team at Studio went above and beyond with our onboarding, even finding a
+                                            way to access the user’s microphone without triggering one of those annoying
+                                            permission dialogs.</p>
+                                    </blockquote>
+                                    <figcaption class="mt-10"><img alt="Phobia" loading="lazy" width="184" height="36"
+                                            decoding="async" data-nimg="1" style="color:transparent"></figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40">
+                    <div class="mx-auto max-w-2xl lg:max-w-none">
+                        <div class="max-w-2xl" style="opacity: 1; transform: none;">
+                            <h2><span
+                                    class="mb-6 block font-display text-base font-semibold text-neutral-950">Services</span><span
+                                    class="sr-only"> - </span><span
+                                    class="block font-display tracking-tight [text-wrap:balance] text-4xl font-medium sm:text-5xl text-neutral-950">We
+                                    help you identify, explore and respond to new opportunities.</span></h2>
+                            <div class="mt-6 text-xl text-neutral-600">
+                                <p>As long as those opportunities involve giving us money to re-purpose old projects —
+                                    we can come up with an endless number of those.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-16">
+                    <div class="mx-auto max-w-2xl lg:max-w-none">
+                        <div class="lg:flex lg:items-center lg:justify-end">
+                            <div class="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
+                                <div class="w-[33.75rem] flex-none lg:w-[45rem]" style="opacity: 1; transform: none;">
+                                    <div
+                                        class="justify-center lg:justify-end relative flex aspect-719/680 w-full grayscale">
+                                        <svg viewBox="0 0 655 680" fill="none" class="h-full">
+                                            <g clip-path="url(#:S1:-clip)" class="group">
+                                                <g
+                                                    class="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
+                                                    <foreignObject width="655" height="680"><img alt="" loading="lazy"
+                                                            width="2400" height="3000" decoding="async" data-nimg="1"
+                                                            class="w-full bg-neutral-100 object-cover"
+                                                            style="color:transparent;aspect-ratio:655 / 680"
+                                                            sizes="(min-width: 1024px) 41rem, 31rem">
+                                                    </foreignObject>
+                                                </g>
+                                                <use href="#:S1:-shape" stroke-width="2" class="stroke-neutral-950/10">
+                                                </use>
+                                            </g>
+                                            <defs>
+                                                <clipPath id=":S1:-clip">
+                                                    <path id=":S1:-shape"
+                                                        d="M537.827 9.245A11.5 11.5 0 0 1 549.104 0h63.366c7.257 0 12.7 6.64 11.277 13.755l-25.6 128A11.5 11.5 0 0 1 586.87 151h-28.275a15.999 15.999 0 0 0-15.689 12.862l-59.4 297c-1.98 9.901 5.592 19.138 15.689 19.138h17.275l.127.001c.85.009 1.701.074 2.549.009 11.329-.874 21.411-7.529 24.88-25.981.002-.012.016-.016.023-.007.008.009.022.005.024-.006l24.754-123.771A11.5 11.5 0 0 1 580.104 321h63.366c7.257 0 12.7 6.639 11.277 13.755l-25.6 128A11.5 11.5 0 0 1 617.87 472H559c-22.866 0-28.984 7.98-31.989 25.931-.004.026-.037.035-.052.014-.015-.02-.048-.013-.053.012l-24.759 123.798A11.5 11.5 0 0 1 490.87 631h-29.132a14.953 14.953 0 0 0-14.664 12.021c-4.3 21.502-23.18 36.979-45.107 36.979H83.502c-29.028 0-50.8-26.557-45.107-55.021l102.4-512C145.096 91.477 163.975 76 185.902 76h318.465c10.136 0 21.179-5.35 23.167-15.288l10.293-51.467Zm-512 160A11.5 11.5 0 0 1 37.104 160h63.366c7.257 0 12.7 6.639 11.277 13.755l-25.6 128A11.5 11.5 0 0 1 74.87 311H11.504c-7.257 0-12.7-6.639-11.277-13.755l25.6-128Z"
+                                                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <ul role="list"
+                                    class="text-base text-neutral-600 mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
+                                    <li class="group mt-10 first:mt-0">
+                                        <div style="opacity: 1; transform: none;">
+                                            <div
+                                                class="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px">
+                                                <strong class="font-semibold text-neutral-950">Web development.
+                                                </strong>We specialise in crafting beautiful, high quality marketing
+                                                pages. The rest of the website will be a shell that uses lorem ipsum
+                                                everywhere.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="group mt-10 first:mt-0">
+                                        <div style="opacity: 1; transform: none;">
+                                            <div
+                                                class="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px">
+                                                <strong class="font-semibold text-neutral-950">Application development.
+                                                </strong>We have a team of skilled developers who are experts in the
+                                                latest app frameworks, like Angular 1 and Google Web Toolkit.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="group mt-10 first:mt-0">
+                                        <div style="opacity: 1; transform: none;">
+                                            <div
+                                                class="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px">
+                                                <strong class="font-semibold text-neutral-950">E-commerce. </strong>We
+                                                are at the forefront of modern e-commerce development. Which mainly
+                                                means adding your logo to the Shopify store template we’ve used for the
+                                                past six years.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="group mt-10 first:mt-0">
+                                        <div style="opacity: 1; transform: none;">
+                                            <div
+                                                class="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px">
+                                                <strong class="font-semibold text-neutral-950">Custom content
+                                                    management. </strong>At Studio we understand the importance of
+                                                having a robust and customised CMS. That’s why we run all of our client
+                                                projects out of a single, enormous Joomla instance.
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40">
+                    <div class="mx-auto max-w-2xl lg:max-w-none">
+                        <div class="-mx-6 rounded-4xl bg-neutral-950 px-6 py-20 sm:mx-0 sm:py-32 md:px-12"
+                            style="opacity: 1; transform: none;">
+                            <div class="mx-auto max-w-4xl">
+                                <div class="max-w-xl">
+                                    <h2
+                                        class="font-display text-3xl font-medium [text-wrap:balance] text-white sm:text-4xl">
+                                        Tell us about your project</h2>
+                                    <div class="mt-6 flex"><a
+                                            class="inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition bg-white text-neutral-950 hover:bg-neutral-200"
+                                            href="/contact"><span class="relative top-px">Say Hej</span></a></div>
+                                    <div class="mt-10 border-t border-white/10 pt-10">
+                                        <h3 class="font-display text-base font-semibold text-white">Our offices</h3>
+                                        <ul role="list" class="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+                                            <li>
+                                                <address class="text-sm not-italic text-neutral-300"><strong
+                                                        class="text-white">Copenhagen</strong><br>1 Carlsberg
+                                                    Gate<br>1260, København, Denmark</address>
+                                            </li>
+                                            <li>
+                                                <address class="text-sm not-italic text-neutral-300"><strong
+                                                        class="text-white">Billund</strong><br>24 Lego Allé<br>7190,
+                                                    Billund, Denmark</address>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 w-full sm:mt-32 lg:mt-40">
+                <div class="mx-auto max-w-2xl lg:max-w-none">
+                    <div style="opacity: 1; transform: none;">
+                        <div class="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
+                            <nav>
+                                <ul role="list" class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+                                    <li>
+                                        <div class="font-display text-sm font-semibold tracking-wider text-neutral-950">
+                                            Work</div>
+                                        <ul role="list" class="mt-4 text-sm text-neutral-700">
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/work/family-fund">FamilyFund</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/work/unseal">Unseal</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/work/phobia">Phobia</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/work">See all <span aria-hidden="true">→</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="font-display text-sm font-semibold tracking-wider text-neutral-950">
+                                            Company</div>
+                                        <ul role="list" class="mt-4 text-sm text-neutral-700">
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/about">About</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/process">Process</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/blog">Blog</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="/contact">Contact us</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="font-display text-sm font-semibold tracking-wider text-neutral-950">
+                                            Connect</div>
+                                        <ul role="list" class="mt-4 text-sm text-neutral-700">
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="https://facebook.com">Facebook</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="https://instagram.com">Instagram</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="https://github.com">GitHub</a></li>
+                                            <li class="mt-4"><a class="transition hover:text-neutral-950"
+                                                    href="https://dribbble.com">Dribbble</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="flex lg:justify-end">
+                                <form class="max-w-sm">
+                                    <h2 class="font-display text-sm font-semibold tracking-wider text-neutral-950">Sign
+                                        up for our newsletter</h2>
+                                    <p class="mt-4 text-sm text-neutral-700">Subscribe to get the latest design news,
+                                        articles, resources and inspiration.</p>
+                                    <div class="relative mt-6"><input type="email" placeholder="Email address"
+                                            autocomplete="email" aria-label="Email address"
+                                            class="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pr-20 pl-6 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden">
+                                        <div class="absolute inset-y-1 right-1 flex justify-end"><button type="submit"
+                                                aria-label="Submit"
+                                                class="flex aspect-square h-full items-center justify-center rounded-xl bg-neutral-950 text-white transition hover:bg-neutral-800"><svg
+                                                    viewBox="0 0 16 6" aria-hidden="true" class="w-4">
+                                                    <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M16 3 10 .5v2H0v1h10v2L16 3Z"></path>
+                                                </svg></button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div
+                            class="mt-24 mb-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
+                            <a aria-label="Home" href="/"><svg viewBox="0 0 130 32" aria-hidden="true"
+                                    class="group/logo h-8"><svg viewBox="0 0 32 32" aria-hidden="true"
+                                        preserveAspectRatio="xMinYMid meet">
+                                        <rect clip-path="url(#:Rbblba:-clip)"
+                                            class="h-8 transition-all duration-300 fill-neutral-950 w-0 group-hover/logo:w-8">
+                                        </rect>
+                                        <use href="#:Rbblba:-path" class="stroke-neutral-950" fill="none"
+                                            stroke-width="1.5"></use>
+                                        <defs>
+                                            <path id=":Rbblba:-path"
+                                                d="M3.25 26v.75H7c1.305 0 2.384-.21 3.346-.627.96-.415 1.763-1.02 2.536-1.752.695-.657 1.39-1.443 2.152-2.306l.233-.263c.864-.975 1.843-2.068 3.071-3.266 1.209-1.18 2.881-1.786 4.621-1.786h5.791V5.25H25c-1.305 0-2.384.21-3.346.627-.96.415-1.763 1.02-2.536 1.751-.695.658-1.39 1.444-2.152 2.307l-.233.263c-.864.975-1.843 2.068-3.071 3.266-1.209 1.18-2.881 1.786-4.621 1.786H3.25V26Z">
+                                            </path>
+                                            <clipPath id=":Rbblba:-clip">
+                                                <use href="#:Rbblba:-path"></use>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <path class="fill-neutral-950"
+                                        d="M52.928 23.716c5.184 0 7.992-1.992 7.992-5.28 0-3.888-2.688-4.8-7.512-5.376-3.36-.408-4.728-.672-4.728-2.448 0-1.464 1.44-2.376 3.912-2.376 2.4 0 3.936.864 4.104 2.784h3.576c-.24-3.288-3-5.232-7.536-5.232-4.728 0-7.68 1.896-7.68 5.208 0 3.48 2.712 4.464 7.416 5.04 3.216.408 4.8.648 4.8 2.664 0 1.584-1.392 2.544-4.224 2.544-3.048 0-4.68-1.176-4.752-3.288H44.6c.072 3.408 2.616 5.76 8.328 5.76Zm14.175-.216h3.312v-2.928h-1.968c-.84 0-1.272-.24-1.272-1.104v-6.144h3.24v-2.592h-3.24V6.676l-3.36.648v3.408h-2.496v2.592h2.496v7.2c0 2.04 1.248 2.976 3.288 2.976Zm10.078.216c2.16 0 4.104-1.008 4.944-2.64h.168l.144 2.424h3.288V10.732h-3.432v6.336c0 2.4-1.584 4.032-3.984 4.032-2.328 0-3.264-1.368-3.264-3.936v-6.432h-3.432v7.032c0 4.416 2.256 5.952 5.568 5.952Zm16.24.048c2.52 0 4.2-1.008 4.944-2.496h.168l.072 2.232h3.264V6.004h-3.408v7.008h-.168c-.792-1.56-2.592-2.52-4.848-2.52-3.816 0-6.384 2.592-6.384 6.624 0 4.056 2.568 6.648 6.36 6.648Zm1.032-2.616c-2.472 0-3.96-1.536-3.96-4.032s1.488-4.008 3.96-4.008 3.984 1.512 3.984 3.648v.744c0 2.136-1.536 3.648-3.984 3.648Zm9.485-12.216h3.408V6.004h-3.408v2.928Zm0 14.568h3.408V10.732h-3.408V23.5Zm12.481.24c4.584 0 7.56-2.52 7.56-6.624 0-4.152-3-6.624-7.56-6.624s-7.56 2.52-7.56 6.624c0 4.128 3.024 6.624 7.56 6.624Zm0-2.64c-2.592 0-4.128-1.56-4.128-3.984s1.536-3.984 4.128-3.984c2.616 0 4.152 1.536 4.152 3.984 0 2.424-1.56 3.984-4.152 3.984Zm8.794 2.4h3.384v-2.88h-3.384v2.88Z">
+                                    </path>
+                                </svg></a>
+                            <p class="text-sm text-neutral-700">© Studio Agency Inc. <!-- -->2025</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 </template>
