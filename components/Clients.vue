@@ -28,6 +28,10 @@ const clients: clientsProps[] = [
     name: "DMENU",
   },
   {
+    img: "/clients/brekky.png",
+    name: "brekky",
+  },
+  {
     img: "/clients/foden.png",
     name: "Foden",
   },

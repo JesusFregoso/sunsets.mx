@@ -20,5 +20,8 @@
     "vue": "latest",
     "vue-router": "latest",
     "vue3-marquee": "^4.2.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-analytics": "^2.4.0"
   }
 }
