@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      script: [
+        { src: "https://lunfdbes.formester.com/widget/standard.js", type:"module"}
+      ]
+    }
+  },
   devServer: {
     port: 3001,
   },

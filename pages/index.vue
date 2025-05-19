@@ -9,25 +9,27 @@ onMounted(() => {
   const equipo = window.document.getElementById('equipo') 
   const contacto = window.document.getElementById('contacto')
   window.addEventListener("scrollend", (event) => {
+    console.log({event})
+    console.log(window.scrollY)
+    console.log(contacto.offsetTop)
+    console.log(contacto.offsetTop-1)
     if (window.scrollY >= servicios.offsetTop && window.scrollY < crecimiento.offsetTop) {
       fabButton.value = 'crecimiento'
       return
     }
-    if (window.scrollY >= servicios.offsetTop && window.scrollY <  testimonios.offsetTop) {
+    if (window.scrollY >= servicios.offsetTop && window.scrollY <  testimonios.offsetTop-1) {
       fabButton.value = 'testimonios'
       return
     }
-    if (window.scrollY >= testimonios.offsetTop && window.scrollY <  equipo.offsetTop) {
+    if (window.scrollY >= testimonios.offsetTop-1 && window.scrollY < equipo.offsetTop-1) {
       fabButton.value = 'equipo'
       return
     }
-    if (window.scrollY >= equipo.offsetTop && window.scrollY <  contacto.offsetTop - 200) {
-      console.log(window.scrollY)
-      console.log(contacto.offsetTop)
+    if (window.scrollY >= equipo.offsetTop-1) {
       fabButton.value = 'contacto'
       return
     }
-    if (window.scrollY >= contacto.offsetTop - 200) {
+    if (window.scrollY >= contacto.offsetTop - 150) {
       backtoTop.value = true
       return
     } else {

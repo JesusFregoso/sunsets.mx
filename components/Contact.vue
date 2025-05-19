@@ -94,16 +94,15 @@ const handleSubmit = () => {
               </ul>
             </div>
           </div>
-          <form class="ml-auo space-y-4">
-            <input type='text' placeholder='Nombre' class="w-full rounded-md py-3 px-4 bg-[#f8f9ff] outline-accent-400" />
-            <input type='email' placeholder='Correo' class="w-full rounded-md py-3 px-4 bg-[#f8f9ff] outline-accent-400" />
-            <input type='text' placeholder='Asunto'
-              class="w-full rounded-md py-3 px-4 bg-[#f8f9ff] outline-accent-400" />
-            <textarea placeholder='Mensaje' rows="6"
-              class="w-full rounded-md px-4 bg-[#f8f9ff] pt-3 outline-accent-400"></textarea>
-            <button type='button'
-              class="w-full mt-6 px-6 py-3 rounded-xl text-white bg-accent-400 transition-all hover:bg-accent-400">Enviar</button>
-          </form>
+          <formester-standard-form
+          netlify
+          class="ml-auo space-y-4"
+            set-auto-height="true"
+            height="100%"
+            width="100%"
+            id="tLl068xK0"
+            url="https://lunfdbes.formester.com/f/tLl068xK0"
+          ></formester-standard-form>
         </div>
       </div>
   </section>
